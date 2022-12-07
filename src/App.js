@@ -5,20 +5,24 @@ import Button from "./components/UI/Button";
 import "./App.css";
 
 function App() {
-  const [showParagraph, setShowParagraph] = useState(false);
-
   console.log("APP RUNING");
 
-  const handleToogleParagraph = useCallback(
-    () => setShowParagraph((prevShowParagraph) => !prevShowParagraph),
+  const [showParagraph, setShowParagraph] = useState(false);
+  const [allowToogle, setAllowToogle] = useState(false);
 
-    []
-  );
+  const handleAllowToggle = () => setAllowToogle(true);
+
+  const handleToogleParagraph = useCallback(() => {
+    if (allowToogle) {
+      setShowParagraph((prevShowParagraph) => !prevShowParagraph);
+    }
+  }, [allowToogle]);
 
   return (
     <div className="app">
       <h1>Hi there!</h1>
       <DemoOutput show={showParagraph} />
+      <Button onClick={handleAllowToggle}>Allow Toggle</Button>
       <Button onClick={handleToogleParagraph}>Toggle Paragraph!</Button>
     </div>
   );
