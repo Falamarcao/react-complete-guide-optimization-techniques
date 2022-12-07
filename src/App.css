@@ -1,4 +1,6 @@
 .app {
+  justify-content: center;
+  align-items: center;
   margin: 3rem auto;
   width: 30rem;
   padding: 1rem;
@@ -7,7 +9,13 @@
   border-radius: 10px;
 }
 
-.app h1 {
+.app * {
   margin: 0;
   text-align: center;
+  justify-content: center;
+}
+
+.app *:not(h1) {
+  display: flex;
+  margin: 1rem auto;
 }
