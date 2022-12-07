@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import DemoOutput from "./Demo/DemoOutput";
 import Button from "./components/UI/Button";
 
@@ -9,8 +9,11 @@ function App() {
 
   console.log("APP RUNING");
 
-  const handleToogleParagraph = () =>
-    setShowParagraph((prevShowParagraph) => !prevShowParagraph);
+  const handleToogleParagraph = useCallback(
+    () => setShowParagraph((prevShowParagraph) => !prevShowParagraph),
+
+    []
+  );
 
   return (
     <div className="app">
